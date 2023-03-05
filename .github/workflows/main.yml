@@ -12,11 +12,14 @@ on:
 jobs:
   s390:
     name: test s390x
+    env:
+      CARGO_REGISTRIES_CRATES_IO_PROTOCOL: sparse
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - run: rustup default nightly
       - run: rustup target add s390x-unknown-linux-gnu
-      - run: cargo check --all-targets --target s390x-unknown-linux-gnu
+      - run: cargo check -Z build-std --all-targets --target s390x-unknown-linux-gnu
 
   build:
     if: false
