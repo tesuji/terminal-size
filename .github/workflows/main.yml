@@ -16,6 +16,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
+          repository: 'eminence/terminal-size'
           ref: 'v0.1.17'
           fetch-depth: '0'
       - run: rustup target add s390x-unknown-linux-gnu
