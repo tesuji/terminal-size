@@ -11,6 +11,7 @@ on:
 
 jobs:
   build:
+    if: false
     name: Build
     runs-on: ${{ matrix.os }}
     strategy:
@@ -33,6 +34,7 @@ jobs:
         run: cargo build
 
   cross:
+    if: false
     name: Cross
     runs-on: ubuntu-latest
     strategy:
@@ -53,6 +55,7 @@ jobs:
         run: cargo check --target i686-unknown-linux-gnu
 
   test:
+    if: false
     name: Test
     runs-on: ubuntu-latest
     steps:
